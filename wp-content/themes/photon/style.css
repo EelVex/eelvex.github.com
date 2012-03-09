@@ -1,0 +1,743 @@
+/*  BASED ON:
+Theme Name: Photon
+Theme URI: http://jacobandreas.net/2008/photon-2-wordpress-theme/
+Description: A lightweight theme with easily-customizable stylesheets.
+Version: 2.5.1
+Author: Jacob Andreas
+Tags: orange, white, light
+
+*/
+
+
+/*
+-------  basic styles  -------
+*/
+
+body {
+
+    font-size: 16px;
+/*    font-family: "Helvetica", "Liberation Sans", "Arial", sans-serif;
+    font-family:Verdana, Arial, Helvetica, sans-serif;
+    font-family: "Bitstream Vera Sans", "Arial", "Helvetica", sans-serif; */
+    font-family: "Bitstream Vera Serif", Georgia, Times New Roman, Serif;
+    text-rendering: optimizeLegibility;
+
+
+    line-height: 1.8em;
+    text-align: center;
+    min-width: 400px;
+    padding: 0;
+    margin: 0;
+    	
+}
+
+a {
+
+    text-decoration: none;
+    font-weight: bold;
+
+}
+
+p {
+
+    margin-bottom: 2em;
+
+}
+
+ul {
+
+    list-style-type: square;
+
+}
+
+ul, ol {
+
+    margin-bottom: 2em;
+    padding-left: 0;
+    margin-left: 0;
+
+}
+
+ul ul, ul ol, ol ul, ol ol {
+
+    padding-left: 2em;
+    margin-top: 1em;
+
+}
+
+li {
+
+    margin-bottom: 1em;
+
+}
+
+div.codecolorer {
+  line-height: 1.8em;
+  font-size: 1.1em;
+  font-family: "Consolas","Lucida Console","Monaco",monospace;
+  background: #eeeeee;
+  padding-left: 0.5em;
+}
+.line-numbers div, .ln-xtra {
+   line-height: 1.98em;	
+   display: block;
+}
+.codecolorer-container table {
+  margin: 0;
+  padding: 0;
+}
+
+code, pre{
+
+    display: block;
+    border-width: 1px;
+    border-style: solid;
+    border-left-width: 3px;
+    padding: .5em;
+    line-height: 1.7em;
+    font-family: monospace;
+    font-family: "Consolas","Lucida Console","Monaco",monospace;
+    display: inline;
+    padding-right: 1em;
+}
+
+pre {
+    margin: 0; padding: 0;
+}
+
+blockquote {
+
+    margin-left: 3em;
+
+}
+
+p cite {
+
+    margin-left: 3em;
+
+}
+
+img {
+
+    max-width: 570px;
+    font-size: 0;
+    line-height: 0;
+    vertical-align: bottom;
+    margin-top: 1.5em;
+
+}
+
+a img {
+    border-width: 3px;
+    border-style: solid;
+    background: none;
+}
+
+h1 {
+font-weight: normal;
+font-size: 2.7em; line-height: 1.267em;
+color: #3A5C99;
+}
+
+h2 {
+
+    font-size: 1.5em;
+font-weight: normal;
+font-size: 2.1em; line-height: 1.267em;
+color: #3A5C99;
+}
+
+h3 {
+
+    font-size: 1.2em;
+font-weight: normal;
+font-size: 1.8em; line-height: 1.267em;
+color: #3A5C99;
+
+}
+
+input, textarea {
+
+    background: #eee;
+    border-width: 1px;
+    border-style: solid;
+    padding: .3em;
+
+}
+
+fieldset {
+
+    border: 0;
+    background: transparent;
+
+}
+
+dd, dt {
+
+    margin-bottom: 1em;
+
+} 
+
+h2, h3, h4 {
+
+    padding: .2em;
+    padding-left: 0;
+    margin-bottom: 0em;
+    margin-top: 2em;
+
+}
+
+h1, h2, h3 {
+    font-family: "Bitstream Vera Serif", Georgia, Times New Roman, Serif;
+}
+
+
+
+/*
+-------  header  -------
+*/
+
+#header {
+
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+#header h2 {
+
+    font-size: 2em;
+    text-align: right;
+    border-bottom-width: 1px; 
+    border-bottom-style: solid;
+    padding-right: 1em;
+    margin-top: 0em;
+
+}
+
+#header h2 a {
+
+    font-weight: normal;
+
+}
+
+#header img {
+    border: 0;
+    display: inline;
+}
+
+
+#headerbuttons {
+
+    float: left;
+    display: inline;
+    margin-top: .3em;
+    margin-left: 1em;
+
+}
+
+#headerbuttons a:hover {
+
+    background: transparent;
+
+}
+
+#search {
+    float: left;
+    margin-left: 1em;
+    margin-top: .6em;
+    visibility: hidden;
+}
+
+#search input {
+    margin: 0;
+}
+
+#searchbutton {
+    display: inline;
+    float: left;
+    margin-top: 0;
+}
+
+#searchbutton img {
+
+    display: inline;
+    border: none;
+    margin-top: 0;
+
+}
+
+
+#arrows {
+    display: inline;
+    margin-right: 10px;
+    float: left;
+    margin-top: .1em;
+    padding-bottom: 1em;
+}
+
+#arrows a {
+    font-size: 3em;
+}
+
+#description {
+    margin-top: .8em;
+    text-align: right;
+    margin-right: 1.9em;
+    margin-left: 1.9em;
+    margin-bottom: 0;
+}
+
+
+
+/*
+-------  wrapper  -------
+*/
+
+#wrapper {
+    text-align: center;
+    padding-top: 0;
+    margin: 0 auto;
+}
+
+#wrapper div {
+
+    max-width: 700px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 2.5em;
+    text-align: left;
+
+    * width: 700px;
+
+}
+
+
+/*
+-------  entry lists  -------
+*/
+
+#posts ul {
+
+    list-style-image: none;
+    list-style-type: none;
+
+}
+
+#posts.excerpts ul li {
+
+    margin-bottom: 3em;
+    
+
+}
+
+#posts.titles ul li .title {
+    display: block;
+    margin-left: 5em;
+}
+
+#posts.titles ul li .prefix {
+    display: block;
+    float: left;
+    width: 5em;
+    font-weight: bold;
+
+}
+
+.post-title {
+
+    margin-top: 1em;
+    font-weight: bold;
+
+}
+
+.more {
+
+    margin-top: -1em;
+    font-size: .8em;
+
+}
+
+
+
+
+/*
+-------  comment form  -------
+*/
+
+#comments-meta h2, #comments-post h2 {
+
+    font-weight: normal;
+    background: none;
+    border: none;
+
+}
+
+#post-meta p, #comments-meta p {
+    font-size: .8em;
+    margin-bottom: 1em;
+    line-height: 1.5em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#post-meta p {
+  	color: #bbb;
+}
+
+#comment {
+
+    width: 90%;
+    border-width: 1px;
+    border-style: solid;
+
+}
+
+#submit {
+
+    border-width: 1px;
+    border-style: solid;
+    padding: 8px;
+
+}
+
+#comments ol li {
+
+    margin-bottom: 60px;
+
+}
+
+#commentlist li p cite a {
+
+font-weight: normal;
+
+}
+
+
+#comment-trackback ul {
+
+    width: 780px;
+
+}
+
+#comment-trackback p cite {
+
+    display: none;
+
+}
+
+#comment-trackback ul li {
+
+    margin-bottom: 1em;
+
+}
+
+#comment-trackback ul li a {
+
+    font-weight: normal;
+
+}
+
+#comments-post label {
+
+    margin-left: 15px;
+    font-size: .9em;
+
+}
+
+
+
+/*
+-------  sidebar  -------
+*/
+
+#sidebar {
+    width: 100%;
+    display: block;
+    padding: 1em 0;
+    text-align: center;
+    line-height: 1.3em;
+    * margin-bottom: -9999px;
+
+}
+
+#sidebar ul {
+
+    list-style-type: none;
+    margin-top: 5px;
+    padding-left: 0;
+
+}
+
+#sidebar li {
+
+    margin-bottom: 3em;
+
+}
+
+#sidebar ul li ul {
+
+    margin-top: 0;
+
+}
+
+#sidebar ul li ul li {
+
+    margin-bottom: .7em;
+
+}
+
+#sidebar h2 {
+
+    margin-top: 0;
+    margin-bottom: .3em;
+
+}
+
+#sidebar iframe {
+
+
+}
+
+#sidebar a {
+
+    font-size: .9em;
+
+}
+
+
+/*
+-------  footer  -------
+*/
+
+#footer {
+
+    clear: both;
+    font-weight: bold;
+
+}
+
+
+
+/*
+-------  misc  -------
+*/
+
+#post div {
+        margin: 0;
+}
+
+
+
+/*
+------- wordpress styles -------
+*/
+
+.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.alignleft {
+    float: left;
+}
+
+.alignright {
+    float: right;
+}
+
+.wp-caption, #wrapper div.wp-caption {
+    text-align: center;
+    padding-top: 5px;
+    margin-top: 1.5em;
+}
+
+.wp-caption img, #wrapper div.wp-caption img, .wp-caption a img {
+    margin: 0;
+    padding: 0;
+}
+
+.wp-caption p.wp-caption-text {
+    font-size: .9em;
+    line-height: 1.3em;
+    padding: 5px 0;
+    margin: 0;
+}
+
+.avatar {
+
+    border: 1px solid #888;
+
+}
+
+#comments cite {
+
+    margin-left: 1em;
+
+}
+
+/*
+-------  my additions  -------
+*/
+body {
+color: #000;
+}
+
+table {margin:1.5em 0; padding:0; border-collapse:collapse;}
+table th {padding:0.5em; border:1px solid #d1d9dc; background-color:#f8f8f8;}
+table tr {margin:0; padding:0;}
+table tr td {padding:0.5em; border:1px solid #d1d9dc;}
+
+
+#post h3 {
+    border-bottom: dotted 1px #555;
+}
+#post img {
+    border: solid #ccc 1px;
+}
+div.toc {
+   width: 600px;
+   margin: 5px 20px 5px 20px;
+   padding: 5px 0 5px 55px;
+   border-top: dotted #aac 1px;
+   border-bottom: dotted #aac 1px;
+}
+
+div.toc li a {
+   color: #aac;
+}
+.toc li, .toc ol {
+margin-bottom: 0;
+margin-top: 0;
+}
+
+p#description {
+    color: #888;
+    font-family: "Bitstream Vera Serif",Georgia, Times New Roman, Serif;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: normal;
+}
+#sidebar { 
+ margin-top: 200px;
+ background-color: #222;
+ background-image: url("/img/back.png"); 
+ background-repeat: no-repeat; 
+ background-position: top center;
+ border-top: solid #333 1px;
+ border-bottom: dotted #333 1px;
+}
+#sidebar table { width: 600px; margin: 0 auto; padding: 0;}
+#sidebar table td {
+ width: 300px;
+ margin: 0; padding: 0; border: 0;
+ vertical-align: top;
+}
+#sidebar h3 {
+ text-align: left;
+ margin: 0 1em 1em 1em; padding: 0;
+ border-bottom: solid #c0baba 2px;
+ color: #c0baba;
+}
+#sidebar li { margin: 0 0 0 2.2em; text-align: left; }
+#sidebar div, #sidebar ul { margin: 0 0 1.5em 0; list-style-type: square; color: #444; line-height: 1em; }
+#sidebar p, #sidebar a { color: #ccc; font-weight: normal; }
+#sidebar a:hover { background-color: #444; }
+#sidebar p { text-align: left; margin: 0 1em 1em 2em; }
+#sidebar p img {float: right; margin: 0 0 0.5em 0.5em; }
+#rss img { border: 0; float: none;}
+/* #rss {  margin: 0 1em 1em 1em; padding: 0; display: block; text-align: left;} */
+#logo img { margin-bottom: -50px; margin-right: -50px;}
+#logo a:hover { background: none; }
+/* #logo { position: relative; top: -12px;} */
+#search, #headerbuttons { position: relative; bottom: -12px; }
+#header { position: relative; top: -12px; }
+#sidebar img, #sidebar a img {
+ border: 0;
+}
+#ngg-webslice div {
+  margin: 10px auto;
+  text-align: center;
+}
+dt {
+  font-weight: bold;
+  margin-bottom: 0.2em; 
+}
+#top-pages {
+ display: block;
+ list-style-type: none;
+ position: relative;
+ bottom: 30px;
+ margin: 0 100px 0 0;
+}
+#top-pages:hover {
+ color: #000;
+}
+#top-pages li {
+ display: inline;
+ padding: 0 15px;
+}
+#top-pages li a {
+ font-family: "Bitstream Vera Sans", "Arial", "Helvetica", sans-serif;
+ color: #ccc;
+ font-size: 130%;
+ font-weight: normal;
+}
+
+.inventory dt.image {
+  display: block;
+  float: left;
+  clear: both;
+  margin: 0 1em 1em 0;
+}
+
+.inventory .separate {
+  clear: left;
+}
+
+.narrate {
+     font-family: "Consolas","Lucida Console","Monaco",monospace; 
+     font-size: 10px;
+     font-weight: bold;
+     padding: 0px 0 0px 20px;
+     color: #555;
+}
+
+span.disclaimer {
+     font-family: monospace;
+     font-size: 0.8em;
+     color: #777;
+     line-height: 0.5;
+     font-style: oblique;
+     padding: 5px 5px;
+}
+span.subtitle {
+     font-weight: bold;
+     font-style: oblique;
+     color: #777;
+     display: block;
+     font-size: 0.9em;
+     padding-left: 2em;
+}
+#related-posts {
+     display: block;
+     position: absolute;
+     top: 200px;
+     right: 30px;
+     background: #fff;
+     border: solid #ccc 1px;
+     padding: 3px 7px;
+}
+#related-posts ol {
+     list-style-type: none;
+}
+#related-posts ol li {
+    padding: 0;
+}
+#wrapper {
+    margin-right: 200px;
+    padding-left: 20px;
+}

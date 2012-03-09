@@ -1,0 +1,666 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/1999/xhtml">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+<head>
+        <meta name="google-site-verification" content="k_Ny8zQj5WaCFitP183tAusX_3b1RW23MFsotsJBR0g" />
+	<link rel="stylesheet" type="text/css" href="http://www.eelvex.net/wp-content/themes/photon/style.css" />
+    <link rel="stylesheet" type="text/css" href="http://www.eelvex.net/wp-content/themes/photon/styles/default.css" />
+    <link rel="alternate" type="application/rss+xml" title="elements" href="http://www.eelvex.net/feed/" />
+
+    <link rel="pingback" href="http://www.eelvex.net/xmlrpc.php" />
+
+	<title>elements &raquo; The choice &#8211; 2 (J and LISP)</title>
+
+    
+<script type="text/javascript"><!--
+function toggle_search() {
+
+    searchdiv = document.getElementById('search');
+    visible = searchdiv.style.visibility == 'visible';
+
+    if(visible) {
+        searchdiv.style.visibility = 'hidden';
+        document.getElementById('searchtext').focus();
+    } else {
+        searchdiv.style.visibility = 'visible';
+        document.getElementById('searchtext').focus();
+    }
+}
+
+function sidebar_visibility() {
+
+    if(document.documentElement.clientWidth <= 640) {
+        document.getElementById('sidebar').style.display = 'none';
+        document.getElementById('wrapper').style.marginLeft = '50px';
+    } else {
+        document.getElementById('sidebar').style.display = 'block';
+        document.getElementById('wrapper').style.marginLeft = '300px';
+    }
+
+}
+
+--></script>
+	<link rel="alternate" type="application/rss+xml" title="elements &raquo; The choice - 2 (J and LISP) Comments Feed" href="http://www.eelvex.net/programming/the-choice-2-j-and-lisp/feed/" />
+<link rel='stylesheet' id='wp-quicklatex-format-css'  href='http://www.eelvex.net/wp-content/plugins/wp-quicklatex/css/quicklatex-format.css?ver=3.3.1' type='text/css' media='all' />
+<link rel='stylesheet' id='NextGEN-css'  href='http://www.eelvex.net/wp-content/plugins/nextgen-gallery/css/nggallery.css?ver=1.0.0' type='text/css' media='screen' />
+<link rel='stylesheet' id='shutter-css'  href='http://www.eelvex.net/wp-content/plugins/nextgen-gallery/shutter/shutter-reloaded.css?ver=1.3.4' type='text/css' media='screen' />
+<link rel='stylesheet' id='A2A_SHARE_SAVE-css'  href='http://www.eelvex.net/wp-content/plugins/add-to-any/addtoany.min.css?ver=1.4' type='text/css' media='all' />
+<link rel='stylesheet' id='codecolorer-css'  href='http://www.eelvex.net/wp-content/plugins/codecolorer/codecolorer.css?ver=0.9.9' type='text/css' media='screen' />
+<link rel='stylesheet' id='gabcaptcha2_stylesheet_std-css'  href='http://www.eelvex.net/wp-content/plugins/gab-captcha-2/style.css?ver=3.3.1' type='text/css' media='all' />
+<link rel='stylesheet' id='gabcaptcha2_stylesheet_css-css'  href='http://www.eelvex.net/wp-content/plugins/gab-captcha-2/emphasis.php?set=Miw5LDEzLDE0LA%3D%3D&#038;ver=3.3.1' type='text/css' media='all' />
+<script type='text/javascript' src='http://www.eelvex.net/wp-includes/js/prototype.js?ver=1.6.1'></script>
+<script type='text/javascript' src='http://www.eelvex.net/wp-includes/js/scriptaculous/wp-scriptaculous.js?ver=1.8.3'></script>
+<script type='text/javascript' src='http://www.eelvex.net/wp-includes/js/scriptaculous/effects.js?ver=1.8.3'></script>
+<script type='text/javascript' src='http://www.eelvex.net/wp-content/plugins/lightbox-2/lightbox.js?ver=1.8'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var shutterSettings = {"msgLoading":"L O A D I N G","msgClose":"Click to Close","imageCount":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://www.eelvex.net/wp-content/plugins/nextgen-gallery/shutter/shutter-reloaded.js?ver=1.3.3'></script>
+<script type='text/javascript' src='http://www.eelvex.net/wp-includes/js/jquery/jquery.js?ver=1.7.1'></script>
+<script type='text/javascript' src='http://www.eelvex.net/wp-content/plugins/nextgen-gallery/js/jquery.cycle.all.min.js?ver=2.9995'></script>
+<script type='text/javascript' src='http://www.eelvex.net/wp-content/plugins/nextgen-gallery/js/ngg.slideshow.min.js?ver=1.05'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.eelvex.net/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.eelvex.net/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='&quot;running&quot;' href='http://www.eelvex.net/running/running/' />
+<link rel='next' title='The choice - 1 (Intro)' href='http://www.eelvex.net/programming/the-choice-1-intro/' />
+<meta name="generator" content="WordPress 3.3.1" />
+<link rel='canonical' href='http://www.eelvex.net/programming/the-choice-2-j-and-lisp/' />
+<link rel='shortlink' href='http://www.eelvex.net/?p=1445' />
+
+<script type="text/javascript"><!--
+var a2a_config=a2a_config||{},wpa2a={done:false,html_done:false,script_ready:false,script_load:function(){var a=document.createElement('script'),s=document.getElementsByTagName('script')[0];a.type='text/javascript';a.async=true;a.src='http://static.addtoany.com/menu/page.js';s.parentNode.insertBefore(a,s);wpa2a.script_load=function(){};},script_onready:function(){if(a2a.type=='page'){wpa2a.script_ready=true;if(wpa2a.html_done)wpa2a.init();}},init:function(){for(var i=0,el,target,targets=wpa2a.targets,length=targets.length;i<length;i++){el=document.getElementById('wpa2a_'+(i+1));target=targets[i];a2a_config.linkname=target.title;a2a_config.linkurl=target.url;if(el)a2a.init('page',{target:el});wpa2a.done=true;}}};a2a_config.tracking_callback=['ready',wpa2a.script_onready];
+//--></script>
+
+	<!-- begin lightbox scripts -->
+	<script type="text/javascript">
+    //<![CDATA[
+    document.write('<link rel="stylesheet" href="http://www.eelvex.net/wp-content/plugins/lightbox-2/Themes/Black/lightbox.css" type="text/css" media="screen" />');
+    //]]>
+    </script>
+	<!-- end lightbox scripts -->
+<!-- <meta name="NextGEN" version="1.9.2" /> -->
+<link id='MediaRSS' rel='alternate' type='application/rss+xml' title='NextGEN Gallery RSS Feed' href='http://www.eelvex.net/wp-content/plugins/nextgen-gallery/xml/media-rss.php' />
+<!--[if IE]>
+<style type="text/css">
+.addtoany_list a img{filter:alpha(opacity=70)}
+.addtoany_list a:hover img,.addtoany_list a.addtoany_share_save img{filter:alpha(opacity=100)}
+</style>
+<![endif]-->
+<!-- wp thread comment 1.4.9.4.002 -->
+<style type="text/css" media="screen">
+.editComment, .editableComment, .textComment{
+	display: inline;
+}
+.comment-childs{
+	border: 1px solid #999;
+	margin: 5px 2px 2px 4px;
+	padding: 4px 2px 2px 4px;
+	background-color: white;
+}
+.chalt{
+	background-color: #E2E2E2;
+}
+#newcomment{
+	border:1px dashed #777;width:90%;
+}
+#newcommentsubmit{
+	color:red;
+}
+.adminreplycomment{
+	border:1px dashed #777;
+	width:99%;
+	margin:4px;
+	padding:4px;
+}
+.mvccls{
+	color: #999;
+}
+			
+</style>
+
+<!-- google analytics code. Hope it's not a problem -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-442610-6']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+<!--<body onload="sidebar_visibility()" onresize="sidebar_visibility()">-->
+<body>
+
+<div id="header">
+<div id="headerbuttons">
+<p id="arrows"><a href="http://www.eelvex.net/programming/the-choice-1-intro/" rel="next">&laquo;</a> <a href="http://www.eelvex.net/running/running/" rel="prev">&raquo;</a></p>
+<p id="searchbutton"><a href="#" onclick="toggle_search()" title="search"><img src="http://www.eelvex.net/wp-content/themes/photon/search.png" alt="search" /></a></p>
+</div>
+<div id="search">
+<form method="get" action="http://www.eelvex.net/">
+<input type="text" name="s" id="searchtext" />
+</form>
+</div>
+<h2 id='logo'><a href="http://www.eelvex.net"><img src='/img/elements.png' alt='eelvex elements' title='Eelvex elements, 313m3ntz'/><!--elements--></a>
+</h2>
+<p id="description">&nbsp;Science, love, life and madness.</p>
+
+<!--<a href="http://www.eelvex.net/feed/" title="rss"><img src="http://www.eelvex.net/wp-content/themes/photon/rss.png" alt="rss" /></a>-->
+<ul id="top-pages">
+<li class="page_item page-item-1109"><a href="http://www.eelvex.net/projects/">Projects</a></li>
+<li class="page_item page-item-1436"><a href="http://www.eelvex.net/top-5-posts/">Top 5 posts</a></li>
+<li class="page_item page-item-2"><a href="http://www.eelvex.net/about/">About</a></li>
+</ul>
+</div>
+
+
+<div id="wrapper">
+
+<div id="post-meta">
+
+	<h1>The choice - 2 (J and LISP)</h1>
+	<p>July 21, 2011 at 06:27 - by eelvex        </p>
+	
+</div>
+
+<div id="post">
+
+	<p>[ Get the code at <a href='https://github.com/EelVex/thechoice'>github</a> ]</p>
+<p>We're using RK4 to solve:<br />
+\begin{align*} \frac{df_1(x)}{dx} =&#038; 1 - f_2(x)\\ &#038; \\<br />
+ \frac{df_2(x)}{dx} =&#038; f_1(x) - x<br />
+\end{align*}<br />
+with initial conditions:<br />
+\begin{align*}<br />
+x_0 &#038;= 0\\<br />
+f_1(x_0) &#038;= 1\\<br />
+f_2(x_0) &#038;= 0<br />
+\end{align*}<br />
+in the range [0, 3]</p>
+<p>See the <a href='http://www.eelvex.net/programming/the-choice-1-intro/#toc-the-system'>introductory post</a> for details.</p>
+<p>As already noted, the code below will be <em>rather</em> idiomatic for each language.</p>
+<div class="toc">
+<ol>
+<li><a href="http://www.eelvex.net/programming/the-choice-2-j-and-lisp/#toc-j">J</a></li>
+<li><a href="http://www.eelvex.net/programming/the-choice-2-j-and-lisp/#toc-lisp">LISP</a></li>
+</ol>
+</div>
+<h3 id="toc-j">J</h3>
+<p>[ <a href='http://en.wikipedia.org/wiki/J_%28programming_language%29'>J</a> is a terse array programming language. It's <a href='http://www.jsoftware.com/stable.htm'>on GPLv3</a> since March 2011 ]</p>
+<p>Resisting the temptation to reduce the code to a line of illegible, swear-like bunch of characters, here is the <em>full</em> code in just 8 crystal clear lines.</p>
+<div class="codecolorer-container text default" style="overflow:auto;white-space:nowrap;width:600px;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9<br />10<br />11<br />12<br />13<br />14<br />15<br /></div></td><td><div class="text codecolorer">NB. Assuming given:<br />
+NB. Fs: Functions (as gerund)<br />
+NB. dx: dx step<br />
+NB. v: initial values list<br />
+<br />
+step =: 3 : 0<br />
+&nbsp; &nbsp; a =: (Fs`:0) ({:v)<br />
+&nbsp; &nbsp; b =: (Fs`:0) ({:v) + 2%~dx*(1,a)<br />
+&nbsp; &nbsp; c =: (Fs`:0) ({:v) + 2%~dx*(1,b)<br />
+&nbsp; &nbsp; d =: (Fs`:0) ({:v) + dx*(1,c)<br />
+<br />
+&nbsp; &nbsp; D =: dx*6%~+/(1 2 2 1) * |:(a,.b,.c,.d) <br />
+<br />
+&nbsp; &nbsp; v =: v, (({:v) + (dx, D))<br />
+)</div></td></tr></tbody></table></div>
+<p>Extendable, expandable, short.</p>
+<p>For example:</p>
+<div class="codecolorer-container text default" style="overflow:auto;white-space:nowrap;width:600px;"><div class="text codecolorer">F1 =: 3 :'1 - 2{y'<br />
+F2 =: 3 :'-/ 1 0 { y'<br />
+Fs =: F1`F2<br />
+<br />
+dx =: 0.01<br />
+<br />
+v =: ,:0 1 0 &nbsp; &nbsp; NB. Vector of initial values 'x0, y1, y2'<br />
+<br />
+(step^:300) 0 &nbsp; NB. Run 300 steps</div></div>
+<p>That gives us the vector v with all the value-pairs (x,y<sub>1</sub>,y<sub>2</sub>)</p>
+<div class="codecolorer-container text default" style="overflow:auto;white-space:nowrap;width:435px;"><div class="text codecolorer">&nbsp;v<br />
+&nbsp; &nbsp;0 &nbsp; &nbsp; &nbsp; 1 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0<br />
+0.01 1.00995 0.00999983<br />
+0.02 &nbsp;1.0198 &nbsp;0.0199987<br />
+0.03 1.02955 &nbsp;0.0299955<br />
+0.04 &nbsp;1.0392 &nbsp;0.0399893<br />
+0.05 1.04875 &nbsp;0.0499792<br />
+...<br />
+2.97 1.98469 &nbsp; 0.170752<br />
+2.98 1.99303 &nbsp; &nbsp;0.16089<br />
+2.99 2.00147 &nbsp; 0.151013<br />
+&nbsp; &nbsp;3 2.01001 &nbsp; &nbsp;0.14112</div></div>
+<p>which we can conveniently plot:</p>
+<div class="codecolorer-container text default" style="overflow:auto;white-space:nowrap;width:435px;"><div class="text codecolorer">load 'plot'<br />
+'key f1, f2' plot ({. ; (1 { ]) ,: 2 { ]) |: v</div></div>
+<p><a href="http://www.eelvex.net/wp-content/uploads/2011/04/j.png" rel="lightbox[1445]"><img src="http://www.eelvex.net/wp-content/uploads/2011/04/j-300x225.png" alt="J solution" title="J solution" width="300" height="225" class="alignnone size-medium wp-image-1195" /></a></p>
+<h3 id="toc-lisp">LISP</h3>
+<div class="codecolorer-container lisp default" style="overflow:auto;white-space:nowrap;width:700px;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9<br />10<br />11<br />12<br />13<br />14<br />15<br />16<br /></div></td><td><div class="lisp codecolorer"><span class="br0">&#40;</span><span class="kw1">defun</span> next-y-rk4 <span class="br0">&#40;</span>x y F h<span class="br0">&#41;</span><br />
+&nbsp; <span class="br0">&#40;</span><span class="kw1">let</span> <span class="br0">&#40;</span><span class="br0">&#40;</span>k <span class="br0">&#40;</span><span class="kw1">list</span> y<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br />
+&nbsp; &nbsp; <span class="br0">&#40;</span><span class="kw1">dolist</span> <span class="br0">&#40;</span>m '<span class="br0">&#40;</span><span class="nu0">0</span> <span class="sy0">.</span>5d0 <span class="sy0">.</span>5d0 <span class="nu0">1</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; <span class="br0">&#40;</span>push <span class="br0">&#40;</span><span class="kw1">mapcar</span> #'<span class="br0">&#40;</span><span class="kw1">lambda</span> <span class="br0">&#40;</span>x<span class="br0">&#41;</span> <span class="br0">&#40;</span>* h x<span class="br0">&#41;</span><span class="br0">&#41;</span> <br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="br0">&#40;</span><span class="kw1">mapcar</span> #'<span class="kw1">apply</span> F <span class="br0">&#40;</span>loop repeat <span class="br0">&#40;</span><span class="kw1">length</span> F<span class="br0">&#41;</span> collect <br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#40;</span><span class="kw1">mapcar</span> #'<span class="br0">&#40;</span><span class="kw1">lambda</span> <span class="br0">&#40;</span>a b<span class="br0">&#41;</span> <span class="br0">&#40;</span>+ a <span class="br0">&#40;</span>* m b<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#40;</span><span class="kw1">cons</span> x y<span class="br0">&#41;</span> <span class="br0">&#40;</span><span class="kw1">cons</span> h <span class="br0">&#40;</span>first k<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; k<span class="br0">&#41;</span><span class="br0">&#41;</span><br />
+&nbsp; &nbsp; <span class="br0">&#40;</span><span class="kw1">mapcar</span> #'<span class="br0">&#40;</span><span class="kw1">lambda</span> <span class="br0">&#40;</span>x k1 k2 k3 k4<span class="br0">&#41;</span> <span class="br0">&#40;</span>+ x <span class="br0">&#40;</span>/ <span class="br0">&#40;</span>+ k1 <span class="br0">&#40;</span>* <span class="nu0">2</span> k2<span class="br0">&#41;</span> <span class="br0">&#40;</span>* <span class="nu0">2</span> k3<span class="br0">&#41;</span> k4<span class="br0">&#41;</span> <span class="nu0">6</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <br />
+&nbsp; &nbsp; &nbsp; &nbsp; y <span class="br0">&#40;</span>fourth k<span class="br0">&#41;</span> <span class="br0">&#40;</span>third k<span class="br0">&#41;</span> <span class="br0">&#40;</span>second k<span class="br0">&#41;</span> <span class="br0">&#40;</span>first k<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br />
+<br />
+<span class="br0">&#40;</span><span class="kw1">defmacro</span> solve-rk4 <span class="br0">&#40;</span>initial-values x0 x1 h F<span class="br0">&#41;</span><br />
+&nbsp; `<span class="br0">&#40;</span><span class="kw1">let</span> <span class="br0">&#40;</span><span class="br0">&#40;</span>y <span class="sy0">,</span>initial-values<span class="br0">&#41;</span> <span class="br0">&#40;</span>result <span class="kw1">nil</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br />
+&nbsp; &nbsp; &nbsp;<span class="br0">&#40;</span>loop for x from <span class="sy0">,</span>x0 below <span class="sy0">,</span>x1 by <span class="sy0">,</span>h <span class="kw1">do</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp;<span class="br0">&#40;</span><span class="kw1">setf</span> y <span class="br0">&#40;</span>next-y-rk4 x y <span class="sy0">,</span>F <span class="sy0">,</span>h<span class="br0">&#41;</span><span class="br0">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp;<span class="br0">&#40;</span>push <span class="br0">&#40;</span><span class="kw1">cons</span> <span class="br0">&#40;</span>+ <span class="sy0">,</span>h x<span class="br0">&#41;</span> y<span class="br0">&#41;</span> result<span class="br0">&#41;</span><span class="br0">&#41;</span><br />
+&nbsp; &nbsp; &nbsp;<span class="br0">&#40;</span><span class="kw1">reverse</span> result<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span></div></td></tr></tbody></table></div>
+<p>For example:</p>
+<div class="codecolorer-container lisp default" style="overflow:auto;white-space:nowrap;width:700px;"><div class="lisp codecolorer"><span class="br0">&#40;</span><span class="kw1">defun</span> f1 <span class="br0">&#40;</span>x y1 y2<span class="br0">&#41;</span><br />
+&nbsp; <span class="br0">&#40;</span>- <span class="nu0">1</span> y2<span class="br0">&#41;</span><span class="br0">&#41;</span><br />
+<br />
+<span class="br0">&#40;</span><span class="kw1">defun</span> f2 <span class="br0">&#40;</span>x y1 y2<span class="br0">&#41;</span><br />
+&nbsp; <span class="br0">&#40;</span>- y1 x<span class="br0">&#41;</span><span class="br0">&#41;</span><br />
+<br />
+<span class="br0">&#40;</span>defparameter *h* 0<span class="sy0">.</span>01d0 <span class="st0">&quot;Step for RK4&quot;</span><span class="br0">&#41;</span><br />
+<span class="br0">&#40;</span>defparameter *initial-values* '<span class="br0">&#40;</span>1<span class="sy0">.</span>0d0 0<span class="sy0">.</span>0d0<span class="br0">&#41;</span> <span class="st0">&quot;Initial values f1(x0), f2(x0), ...&quot;</span><span class="br0">&#41;</span><br />
+<span class="br0">&#40;</span>defparameter *x0* 0<span class="sy0">.</span>0d0<span class="br0">&#41;</span><br />
+<span class="br0">&#40;</span>defparameter *x1* 3<span class="sy0">.</span>0d0<span class="br0">&#41;</span><br />
+<br />
+<span class="br0">&#40;</span><span class="kw1">setf</span> v <span class="br0">&#40;</span>solve-rk4 *initial-values* *x0* *x1* *h* '<span class="br0">&#40;</span>f1 f2<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span></div></div>
+<p>which is indeed the same solution as before:</p>
+<div class="codecolorer-container lisp default" style="overflow:auto;white-space:nowrap;width:630px;"><div class="lisp codecolorer"><span class="br0">&#40;</span>loop for i from <span class="nu0">0</span> below <span class="nu0">5</span> <span class="kw1">do</span> <span class="br0">&#40;</span>format t <span class="st0">&quot;~{~,5f ~}~%&quot;</span> <span class="br0">&#40;</span><span class="kw1">nth</span> i v<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br />
+<span class="nu0">0.01000</span> <span class="nu0">1.00995</span> <span class="nu0">0.01000</span> <br />
+<span class="nu0">0.02000</span> <span class="nu0">1.01980</span> <span class="nu0">0.02000</span> <br />
+<span class="nu0">0.03000</span> <span class="nu0">1.02955</span> <span class="nu0">0.03000</span> <br />
+<span class="nu0">0.04000</span> <span class="nu0">1.03920</span> <span class="nu0">0.03999</span> <br />
+<span class="nu0">0.05000</span> <span class="nu0">1.04875</span> <span class="nu0">0.04998</span> <br />
+<br />
+<span class="br0">&#40;</span>loop for i from <span class="nu0">5</span> downto <span class="nu0">1</span> <span class="kw1">do</span> <span class="br0">&#40;</span>format t <span class="st0">&quot;~{~,5f ~}~%&quot;</span> <span class="br0">&#40;</span><span class="kw1">nth</span> i <span class="br0">&#40;</span><span class="kw1">reverse</span> v<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br />
+<span class="nu0">2.96000</span> <span class="nu0">1.97644</span> <span class="nu0">0.18060</span> <br />
+<span class="nu0">2.97000</span> <span class="nu0">1.98469</span> <span class="nu0">0.17075</span> <br />
+<span class="nu0">2.98000</span> <span class="nu0">1.99303</span> <span class="nu0">0.16089</span> <br />
+<span class="nu0">2.99000</span> <span class="nu0">2.00147</span> <span class="nu0">0.15101</span> <br />
+<span class="nu0">3.00000</span> <span class="nu0">2.01001</span> <span class="nu0">0.14112</span></div></div>
+<p>Coming up: R, Fortran, Python, Haskell, Pari/GP, maxima.</p>
+<p>Any other languages that you would like to see?</p>
+<h3>Related Posts</h3>
+<ol>
+		<li><a href="http://www.eelvex.net/programming/the-choice-1-intro/" rel="bookmark">The choice - 1 (Intro)</a><!-- (19.2)--></li>
+		<li><a href="http://www.eelvex.net/programming/lisp/lisp-features/" rel="bookmark">Σύντομο tutorial (common) lisp.</a><!-- (9.8)--></li>
+		<li><a href="http://www.eelvex.net/programming/lisp/%ce%b1%cf%80%ce%bb%ce%ac-%ce%bc%ce%b1%ce%b8%ce%b7%ce%bc%ce%b1%cf%84%ce%b9%ce%ba%ce%ac-%ce%bc%ce%b5-lisp/" rel="bookmark">Απλά μαθηματικά με LISP.</a><!-- (8.6)--></li>
+		<li><a href="http://www.eelvex.net/programming/lisp/%cf%83%cf%8d%ce%bd%cf%84%ce%bf%ce%bc%ce%bf-common-lisp-tutorial-2/" rel="bookmark">Σύντομο (common) lisp tutorial 2.</a><!-- (8.3)--></li>
+	</ol>
+<div id='related-posts'>
+<p>Related posts:</p>
+<ol>
+		<li><a href="http://www.eelvex.net/programming/the-choice-1-intro/" rel="bookmark">The choice - 1 (Intro)</a><!-- (19.2)--></li>
+		<li><a href="http://www.eelvex.net/programming/lisp/lisp-features/" rel="bookmark">Σύντομο tutorial (common) lisp.</a><!-- (9.8)--></li>
+		<li><a href="http://www.eelvex.net/programming/lisp/%ce%b1%cf%80%ce%bb%ce%ac-%ce%bc%ce%b1%ce%b8%ce%b7%ce%bc%ce%b1%cf%84%ce%b9%ce%ba%ce%ac-%ce%bc%ce%b5-lisp/" rel="bookmark">Απλά μαθηματικά με LISP.</a><!-- (8.6)--></li>
+		<li><a href="http://www.eelvex.net/programming/lisp/%cf%83%cf%8d%ce%bd%cf%84%ce%bf%ce%bc%ce%bf-common-lisp-tutorial-2/" rel="bookmark">Σύντομο (common) lisp tutorial 2.</a><!-- (8.3)--></li>
+	</ol>
+</div>
+<div> { Tags: <a href="http://www.eelvex.net/tag/j/" rel="tag">J</a>, <a href="http://www.eelvex.net/tag/language-choice/" rel="tag">language choice</a>, <a href="http://www.eelvex.net/tag/language-choice-system-of-odes/" rel="tag">Language choice: System of ODEs</a>, <a href="http://www.eelvex.net/tag/lisp/" rel="tag">lisp</a>, <a href="http://www.eelvex.net/tag/numerical-analysis/" rel="tag">numerical analysis</a>, <a href="http://www.eelvex.net/tag/runge-kutta/" rel="tag">runge kutta</a> }</div>
+</div>
+
+<a name="comment-form"></a>
+
+<!--[if IE]><iframe frameborder="0" allowTransparency="true" class="addtoany_special_service facebook_like" src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.eelvex.net%2Fprogramming%2Fthe-choice-2-j-and-lisp%2F&amp;layout=button_count&amp;show_faces=false&amp;width=75&amp;action=like&amp;colorscheme=light&amp;height=20&amp;ref=addtoany" scrolling="no" style="border:none;overflow:hidden;width:90px;height:21px"></iframe><![endif]--><!--[if !IE]><!--><iframe class="addtoany_special_service facebook_like" src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.eelvex.net%2Fprogramming%2Fthe-choice-2-j-and-lisp%2F&amp;layout=button_count&amp;show_faces=false&amp;width=75&amp;action=like&amp;colorscheme=light&amp;height=20&amp;ref=addtoany" scrolling="no" style="border:none;overflow:hidden;width:90px;height:21px"></iframe><!--<![endif]--><!--[if IE]><iframe frameborder="0" allowTransparency="true" class="addtoany_special_service twitter_tweet" src="http://platform.twitter.com/widgets/tweet_button.html?url=http%3A%2F%2Fwww.eelvex.net%2Fprogramming%2Fthe-choice-2-j-and-lisp%2F&amp;counturl=http%3A%2F%2Fwww.eelvex.net%2Fprogramming%2Fthe-choice-2-j-and-lisp%2F&amp;count=none&amp;text=The%20choice%20-%202%20%28J%20and%20LISP%29" scrolling="no" style="border:none;overflow:hidden;width:55px;height:20px"></iframe><![endif]--><!--[if !IE]><!--><iframe class="addtoany_special_service twitter_tweet" src="http://platform.twitter.com/widgets/tweet_button.html?url=http%3A%2F%2Fwww.eelvex.net%2Fprogramming%2Fthe-choice-2-j-and-lisp%2F&amp;counturl=http%3A%2F%2Fwww.eelvex.net%2Fprogramming%2Fthe-choice-2-j-and-lisp%2F&amp;count=none&amp;text=The%20choice%20-%202%20%28J%20and%20LISP%29" scrolling="no" style="border:none;overflow:hidden;width:55px;height:20px"></iframe><!--<![endif]--><!--[if IE]><iframe frameborder="0" allowTransparency="true" class="addtoany_special_service google_plusone" src="https://plusone.google.com/u/0/_/%2B1/fastbutton?url=http%3A%2F%2Fwww.eelvex.net%2Fprogramming%2Fthe-choice-2-j-and-lisp%2F&amp;size=medium&amp;count=false" scrolling="no" style="border:none;overflow:hidden;width:32px;height:20px"></iframe><![endif]--><!--[if !IE]><!--><iframe class="addtoany_special_service google_plusone" src="https://plusone.google.com/u/0/_/%2B1/fastbutton?url=http%3A%2F%2Fwww.eelvex.net%2Fprogramming%2Fthe-choice-2-j-and-lisp%2F&amp;size=medium&amp;count=false" scrolling="no" style="border:none;overflow:hidden;width:32px;height:20px"></iframe><!--<![endif]--><div class="a2a_kit a2a_target addtoany_list" id="wpa2a_1"><a class="a2a_button_printfriendly" href="http://www.addtoany.com/add_to/printfriendly?linkurl=http%3A%2F%2Fwww.eelvex.net%2Fprogramming%2Fthe-choice-2-j-and-lisp%2F&amp;linkname=The%20choice%20-%202%20%28J%20and%20LISP%29" title="PrintFriendly" rel="nofollow" target="_blank"><img src="http://www.eelvex.net/wp-content/plugins/add-to-any/icons/printfriendly.png" width="16" height="16" alt="PrintFriendly"/></a><a class="a2a_button_reddit" href="http://www.addtoany.com/add_to/reddit?linkurl=http%3A%2F%2Fwww.eelvex.net%2Fprogramming%2Fthe-choice-2-j-and-lisp%2F&amp;linkname=The%20choice%20-%202%20%28J%20and%20LISP%29" title="Reddit" rel="nofollow" target="_blank"><img src="http://www.eelvex.net/wp-content/plugins/add-to-any/icons/reddit.png" width="16" height="16" alt="Reddit"/></a><a class="a2a_dd addtoany_share_save" href="http://www.addtoany.com/share_save"><img src="http://www.eelvex.net/wp-content/plugins/add-to-any/share_save_171_16.png" width="171" height="16" alt="Share"/></a></div>
+<script type="text/javascript"><!--
+wpa2a.script_load();
+//--></script>
+<hr />
+<div id="comments-meta">
+	
+	<h2>no comments</h2>
+
+	<p><a href='http://www.eelvex.net/programming/the-choice-2-j-and-lisp/feed/'>RSS</a> / 
+			<a href="http://www.eelvex.net/programming/the-choice-2-j-and-lisp/trackback/" rel="trackback">trackback</a>
+		</p>
+</div>
+
+<div id="comments-post">
+
+		<h2>respond</h2>
+
+	
+	<form action="http://www.eelvex.net/wp-comments-post.php" method="post" id="commentform">
+
+	
+	<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+	<label for="author" class="required">Name</label></p>
+
+	<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+    <label for="email" class="required">Mail (will not be published)</label></p>
+
+	<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+	<label for="url">Website</label></p>
+
+	
+	<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+	<p><textarea name="comment" id="comment" cols="100%" rows="10" tabindex="4"></textarea></p>
+
+	<p><input name="submit" type="submit" id="submit" tabindex="5" value="submit" />
+	<input type="hidden" name="comment_post_ID" value="1445" />
+	</p>
+	
+			<noscript><p class="gabcaptchajd">Our anti-spam protection requires that you enable JavaScript in your browser to be able to comment!</p></noscript>
+			<script type="text/javascript">
+			/* <![CDATA[ */
+
+			//return the element specified by id
+			function gabcaptcha2_getElementByIdUniversal( id )
+			{
+				var elem = null;
+				if( document.getElementById )
+				{
+					elem = document.getElementById( id );
+				}
+				else
+				{
+					elem = document.all[ id ];
+				}
+				return elem;
+			}
+
+			//load xml from string
+			function loadXMLString( txt )
+			{
+				if (window.DOMParser)
+				{
+					parser=new DOMParser();
+					xmlDoc=parser.parseFromString( txt, "text/xml" );
+				}
+				else // Internet Explorer
+				{
+					xmlDoc=new ActiveXObject( "Microsoft.XMLDOM" );
+					xmlDoc.async = "false";
+					xmlDoc.loadXML( txt );
+				}
+				return xmlDoc;
+			}
+
+			var captchatarget = gabcaptcha2_getElementByIdUniversal( 'ibttjvfd' );
+
+			//legend
+			var node = document.createElement( "legend" );
+			var nodetext = document.createTextNode( "Anti-spam protection" );
+			node.appendChild(nodetext);
+			captchatarget.appendChild( node );
+
+			//a comment
+			node = document.createComment("Turing test using Gab Captcha 2 v1.0.19 (http://www.gabsoftware.com/products/scripts/gabcaptcha2/)");
+			captchatarget.appendChild( node );
+
+			//a paragraph
+			node = document.createElement( "p" );
+			nodetext = document.createTextNode( "Prove that you are Human by typing the emphasized characters:" );
+			node.appendChild(nodetext);
+			captchatarget.appendChild( node );
+
+			//a label
+			node = document.createElement( "label" );
+			node.setAttribute( "for", "commentturing" );
+			var xml = loadXMLString( '<root xmlns="http://www.w3.org/1999/xhtml"><span class="gc2_0">A</span><span class="gc2_1">B</span><span class="gc2_2">V</span><span class="gc2_3">F</span><span class="gc2_4">H</span><span class="gc2_5">Q</span><span class="gc2_6">T</span><span class="gc2_7">F</span><span class="gc2_8">S</span><span class="gc2_9">I</span><span class="gc2_10">C</span><span class="gc2_11">Y</span><span class="gc2_12">X</span><span class="gc2_13">N</span><span class="gc2_14">N</span><span class="gc2_15">V</span></root>' );
+			var nodes = xml.documentElement.childNodes;
+			for( i = 0, n = nodes.length; i < n; i++ )
+			{
+				node.appendChild( nodes[i].cloneNode( true ) );
+			}
+			captchatarget.appendChild( node );
+
+			//input type=text
+			node = document.createElement( "input" );
+			node.setAttribute( "type", "text" );
+			node.setAttribute( "id", "commentturing" );
+			node.setAttribute( "name", "CommentTuring" );
+			node.setAttribute( "required", "required" );
+			node.setAttribute( "maxlength", "16" );
+			node.setAttribute( "class", "textField" );
+			
+			captchatarget.appendChild( node );
+
+			//br
+			node = document.createElement( "br" );
+			captchatarget.appendChild( node );
+
+			//input type=hidden
+			node = document.createElement( "input" );
+			node.setAttribute( "type", "hidden" );
+			node.setAttribute( "id", "commentsecret" );
+			node.setAttribute( "name", "CommentSecret" );
+			node.setAttribute( "value", "YWQyOTkzY2UxYmI0ZmQ1MjJmMDkwMDZmNTBjZjBhYjg=" );
+			captchatarget.appendChild( node );
+
+			
+			
+				//br
+				node = document.createElement( "br" );
+				captchatarget.appendChild( node );
+
+				
+					//a link
+					node = document.createElement( "a" );
+					node.setAttribute( "href", "http://www.gabsoftware.com/products/scripts/gabcaptcha2/" );
+					node.setAttribute( "title", "Click here for more information about Gab Captcha 2 v1.0.19" );
+					node.setAttribute( "target", "_blank" );
+					nodetext = document.createTextNode( "Protected by " );
+					node.appendChild( nodetext );
+					var node2 = document.createElement( "strong" );
+					nodetext = document.createTextNode( "Gab Captcha 2" );
+					node2.appendChild( nodetext );
+					node.appendChild( node2 );
+
+				
+				//common instructions for link and span
+				node.setAttribute( "class", "gabcaptchalc" );
+				captchatarget.appendChild( node );
+
+				
+			
+			
+			/* ]]> */
+			</script>
+
+			<p><input type="hidden" id="comment_reply_ID" name="comment_reply_ID" value="0" /><input type="hidden" id="comment_reply_dp" name="comment_reply_dp" value="0" /></p><div id="cancel_reply" style="display:none;"><a href="javascript:void(0)" onclick="movecfm(null,0,1,null);" style="color:red;">Click to cancel reply</a></div><p><input type="checkbox" name="comment_mail_notify" id="comment_mail_notify" value="comment_mail_notify" checked="checked" style="width: auto;" /><label for="comment_mail_notify" style="display: inline;">Notify me of follow-up comments via e-mail</label></p><script type="text/javascript">
+/* <![CDATA[ */
+var commentformid = "commentform";
+var USERINFO = false;
+var atreply = "none";
+/* ]]> */
+</script>
+<script type="text/javascript" src="http://www.eelvex.net/wp-content/plugins/wordpress-thread-comment/wp-thread-comment.js.php?jsver=common"></script>
+
+	</form>
+
+	
+	
+</div>
+
+<div id="comments">
+
+	
+</div>
+
+
+
+</div>
+
+<div id="sidebar">
+  <table>
+	<tr><td colspan="2">
+		
+<div class="hslice" id="ngg-webslice" >
+<h3>Gallery</h3>
+<div class="ngg-widget entry-content">
+<a href="http://www.eelvex.net/wp-content/gallery/brillouin_zones/many_bragg_planes.png" title="This is what it looks like after a while." class="shutterset_ngg-images-3"><img src="http://www.eelvex.net/wp-content/gallery/brillouin_zones/thumbs/thumbs_many_bragg_planes.png" width="50" height="50" title="many_bragg_planes" alt="many_bragg_planes" /></a>
+<a href="http://www.eelvex.net/wp-content/gallery/geometry/triangle_pout.png" title="External point." class="shutterset_ngg-images-3"><img src="http://www.eelvex.net/wp-content/gallery/geometry/thumbs/thumbs_triangle_pout.png" width="50" height="50" title="triangle_pout" alt="triangle_pout" /></a>
+<a href="http://www.eelvex.net/wp-content/gallery/brillouin_zone_hex/bragg_planes_hexagonal.png" title="Bragg planes of the hexagonal lattice." class="shutterset_ngg-images-3"><img src="http://www.eelvex.net/wp-content/gallery/brillouin_zone_hex/thumbs/thumbs_bragg_planes_hexagonal.png" width="50" height="50" title="bragg_planes_hexagonal" alt="bragg_planes_hexagonal" /></a>
+<a href="http://www.eelvex.net/wp-content/gallery/graphs/tkzgnupl.png" title="" class="shutterset_ngg-images-3"><img src="http://www.eelvex.net/wp-content/gallery/graphs/thumbs/thumbs_tkzgnupl.png" width="50" height="50" title="tkzgnupl" alt="tkzgnupl" /></a>
+</div>
+</div>
+	</td></tr>
+        <tr><td id="sidebar1">
+		<!--anything above the widgets in sidebar1 goes here -->
+		<h3>Archives</h3>		<ul>
+			<li><a href='http://www.eelvex.net/2011/12/' title='December 2011'>December 2011</a></li>
+	<li><a href='http://www.eelvex.net/2011/09/' title='September 2011'>September 2011</a></li>
+	<li><a href='http://www.eelvex.net/2011/07/' title='July 2011'>July 2011</a></li>
+	<li><a href='http://www.eelvex.net/2011/06/' title='June 2011'>June 2011</a></li>
+	<li><a href='http://www.eelvex.net/2011/05/' title='May 2011'>May 2011</a></li>
+	<li><a href='http://www.eelvex.net/2011/04/' title='April 2011'>April 2011</a></li>
+	<li><a href='http://www.eelvex.net/2010/12/' title='December 2010'>December 2010</a></li>
+	<li><a href='http://www.eelvex.net/2010/11/' title='November 2010'>November 2010</a></li>
+	<li><a href='http://www.eelvex.net/2010/09/' title='September 2010'>September 2010</a></li>
+	<li><a href='http://www.eelvex.net/2010/08/' title='August 2010'>August 2010</a></li>
+	<li><a href='http://www.eelvex.net/2010/07/' title='July 2010'>July 2010</a></li>
+	<li><a href='http://www.eelvex.net/2010/06/' title='June 2010'>June 2010</a></li>
+		</ul>
+<h3>Blogroll</h3>
+	<ul class='xoxo blogroll'>
+<li><a href="http://simpleyou.net/" title="&#8220;changing your life – simple &amp; plain&#8221;">Simple You</a></li>
+<li><a href="http://waterdeep.physics.upatras.gr/~cyberman/wordpress/">Tijuana Del Amor</a></li>
+
+	</ul>
+
+<h3>Categories</h3>		<ul>
+	<li class="cat-item cat-item-68"><a href="http://www.eelvex.net/category/running/" title="View all posts filed under &quot;running&quot;">&quot;running&quot;</a>
+</li>
+	<li class="cat-item cat-item-54"><a href="http://www.eelvex.net/category/administration/" title="View all posts filed under administration">administration</a>
+</li>
+	<li class="cat-item cat-item-31"><a href="http://www.eelvex.net/category/comic/" title="View all posts filed under comic">comic</a>
+</li>
+	<li class="cat-item cat-item-25"><a href="http://www.eelvex.net/category/file-tag/" title="View all posts filed under file-tag">file-tag</a>
+</li>
+	<li class="cat-item cat-item-42"><a href="http://www.eelvex.net/category/fish/" title="View all posts filed under fish">fish</a>
+</li>
+	<li class="cat-item cat-item-60"><a href="http://www.eelvex.net/category/games/" title="View all posts filed under games">games</a>
+</li>
+	<li class="cat-item cat-item-65"><a href="http://www.eelvex.net/category/programming/language-choice-programming/" title="View all posts filed under language-choice">language-choice</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="http://www.eelvex.net/category/latex/" title="View all posts filed under latex">latex</a>
+</li>
+	<li class="cat-item cat-item-39"><a href="http://www.eelvex.net/category/life/" title="View all posts filed under life">life</a>
+</li>
+	<li class="cat-item cat-item-13"><a href="http://www.eelvex.net/category/links-to-articles/" title="View all posts filed under links to articles">links to articles</a>
+</li>
+	<li class="cat-item cat-item-14"><a href="http://www.eelvex.net/category/links-to-news/" title="View all posts filed under links to news">links to news</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="http://www.eelvex.net/category/programming/lisp/" title="View all posts filed under lisp">lisp</a>
+</li>
+	<li class="cat-item cat-item-16"><a href="http://www.eelvex.net/category/physics/" title="View all posts filed under physics">physics</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="http://www.eelvex.net/category/programming/" title="View all posts filed under programming">programming</a>
+</li>
+	<li class="cat-item cat-item-33"><a href="http://www.eelvex.net/category/random/" title="View all posts filed under random">random</a>
+</li>
+	<li class="cat-item cat-item-72"><a href="http://www.eelvex.net/category/simulation/" title="View all posts filed under simulation">simulation</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="http://www.eelvex.net/category/stories/" title="View all posts filed under stories">stories</a>
+</li>
+		</ul>
+		<!--anything below the widgets in sidebar1 goes here -->
+	</td>
+	<td id="sidebar2">
+		<!--<h3>About</h3>
+		<p><img src="/img/duck64x64.png" alt='duck'/>Bla bla bla asodijf aoisjef oiasjf aisofje aoisejoigasje goiasjegoasiegj</p>-->
+		<!--anything above the widgets in sidebar2 goes here -->
+		<h3>Tags</h3><div class="tagcloud"><a href='http://www.eelvex.net/tag/allegro/' class='tag-link-9' title='1 topic' style='font-size: 8pt;'>allegro</a>
+<a href='http://www.eelvex.net/tag/astronomy/' class='tag-link-15' title='1 topic' style='font-size: 8pt;'>astronomy</a>
+<a href='http://www.eelvex.net/tag/asymptote/' class='tag-link-18' title='2 topics' style='font-size: 13.25pt;'>asymptote</a>
+<a href='http://www.eelvex.net/tag/atmosphere/' class='tag-link-27' title='1 topic' style='font-size: 8pt;'>atmosphere</a>
+<a href='http://www.eelvex.net/tag/bad/' class='tag-link-34' title='2 topics' style='font-size: 13.25pt;'>bad</a>
+<a href='http://www.eelvex.net/tag/books/' class='tag-link-74' title='1 topic' style='font-size: 8pt;'>books</a>
+<a href='http://www.eelvex.net/tag/c/' class='tag-link-22' title='2 topics' style='font-size: 13.25pt;'>c</a>
+<a href='http://www.eelvex.net/tag/cluster/' class='tag-link-55' title='1 topic' style='font-size: 8pt;'>cluster</a>
+<a href='http://www.eelvex.net/tag/code/' class='tag-link-10' title='1 topic' style='font-size: 8pt;'>code</a>
+<a href='http://www.eelvex.net/tag/debian/' class='tag-link-56' title='1 topic' style='font-size: 8pt;'>debian</a>
+<a href='http://www.eelvex.net/tag/diskless/' class='tag-link-57' title='1 topic' style='font-size: 8pt;'>diskless</a>
+<a href='http://www.eelvex.net/tag/dynamical-system/' class='tag-link-73' title='1 topic' style='font-size: 8pt;'>dynamical-system</a>
+<a href='http://www.eelvex.net/tag/ecology/' class='tag-link-11' title='1 topic' style='font-size: 8pt;'>ecology</a>
+<a href='http://www.eelvex.net/tag/everyday/' class='tag-link-40' title='2 topics' style='font-size: 13.25pt;'>everyday</a>
+<a href='http://www.eelvex.net/tag/file-tag/' class='tag-link-25' title='1 topic' style='font-size: 8pt;'>file-tag</a>
+<a href='http://www.eelvex.net/tag/fish/' class='tag-link-42' title='1 topic' style='font-size: 8pt;'>fish</a>
+<a href='http://www.eelvex.net/tag/geometry/' class='tag-link-21' title='1 topic' style='font-size: 8pt;'>geometry</a>
+<a href='http://www.eelvex.net/tag/gnuplot/' class='tag-link-38' title='1 topic' style='font-size: 8pt;'>gnuplot</a>
+<a href='http://www.eelvex.net/tag/guide/' class='tag-link-6' title='5 topics' style='font-size: 22pt;'>guide</a>
+<a href='http://www.eelvex.net/tag/humor/' class='tag-link-35' title='2 topics' style='font-size: 13.25pt;'>humor</a>
+<a href='http://www.eelvex.net/tag/inventory/' class='tag-link-43' title='1 topic' style='font-size: 8pt;'>inventory</a>
+<a href='http://www.eelvex.net/tag/j/' class='tag-link-53' title='1 topic' style='font-size: 8pt;'>J</a>
+<a href='http://www.eelvex.net/tag/koan/' class='tag-link-46' title='2 topics' style='font-size: 13.25pt;'>koan</a>
+<a href='http://www.eelvex.net/tag/language-choice/' class='tag-link-51' title='2 topics' style='font-size: 13.25pt;'>language choice</a>
+<a href='http://www.eelvex.net/tag/language-choice-system-of-odes/' class='tag-link-63' title='2 topics' style='font-size: 13.25pt;'>Language choice: System of ODEs</a>
+<a href='http://www.eelvex.net/tag/latex/' class='tag-link-4' title='3 topics' style='font-size: 16.75pt;'>latex</a>
+<a href='http://www.eelvex.net/tag/lisp/' class='tag-link-7' title='4 topics' style='font-size: 19.6666666667pt;'>lisp</a>
+<a href='http://www.eelvex.net/tag/list/' class='tag-link-36' title='1 topic' style='font-size: 8pt;'>list</a>
+<a href='http://www.eelvex.net/tag/numerical-analysis/' class='tag-link-50' title='2 topics' style='font-size: 13.25pt;'>numerical analysis</a>
+<a href='http://www.eelvex.net/tag/packages/' class='tag-link-26' title='2 topics' style='font-size: 13.25pt;'>packages</a>
+<a href='http://www.eelvex.net/tag/php/' class='tag-link-69' title='1 topic' style='font-size: 8pt;'>php</a>
+<a href='http://www.eelvex.net/tag/processing-js/' class='tag-link-59' title='2 topics' style='font-size: 13.25pt;'>processing.js</a>
+<a href='http://www.eelvex.net/tag/project-euler/' class='tag-link-58' title='1 topic' style='font-size: 8pt;'>project euler</a>
+<a href='http://www.eelvex.net/tag/runge-kutta/' class='tag-link-64' title='2 topics' style='font-size: 13.25pt;'>runge kutta</a>
+<a href='http://www.eelvex.net/tag/running-2/' class='tag-link-70' title='1 topic' style='font-size: 8pt;'>running</a>
+<a href='http://www.eelvex.net/tag/self-help/' class='tag-link-41' title='1 topic' style='font-size: 8pt;'>self-help</a>
+<a href='http://www.eelvex.net/tag/simulation/' class='tag-link-72' title='1 topic' style='font-size: 8pt;'>simulation</a>
+<a href='http://www.eelvex.net/tag/solid-state-physics/' class='tag-link-19' title='1 topic' style='font-size: 8pt;'>solid state physics</a>
+<a href='http://www.eelvex.net/tag/ted/' class='tag-link-12' title='1 topic' style='font-size: 8pt;'>ted</a>
+<a href='http://www.eelvex.net/tag/tikz/' class='tag-link-37' title='1 topic' style='font-size: 8pt;'>tikz</a>
+<a href='http://www.eelvex.net/tag/weather/' class='tag-link-28' title='1 topic' style='font-size: 8pt;'>weather</a>
+<a href='http://www.eelvex.net/tag/zen/' class='tag-link-45' title='2 topics' style='font-size: 13.25pt;'>zen</a>
+<a href='http://www.eelvex.net/tag/%ce%b8%ce%b5%cf%81%ce%bc%ce%af%ce%b4%ce%b5%cf%82/' class='tag-link-67' title='1 topic' style='font-size: 8pt;'>θερμίδες</a>
+<a href='http://www.eelvex.net/tag/%ce%ba%cf%81%ce%af%cf%83%ce%b7/' class='tag-link-66' title='1 topic' style='font-size: 8pt;'>κρίση</a></div>
+				<h3>Recent</h3>		<ul>
+				<li><a href="http://www.eelvex.net/latex/best-books-to-learn-latex/" title="Best books to learn LaTeX">Best books to learn LaTeX</a></li>
+				<li><a href="http://www.eelvex.net/simulation/sierpinski-attractor/" title="Sierpinski attractor">Sierpinski attractor</a></li>
+				<li><a href="http://www.eelvex.net/random/zen-for-dummies/" title="Zen for dummies.">Zen for dummies.</a></li>
+				<li><a href="http://www.eelvex.net/life/%ce%b5%cf%85%cf%81%cf%89%ce%bc%ce%af%ce%b4%ce%b5%cf%82/" title="Ευρωμίδες">Ευρωμίδες</a></li>
+				<li><a href="http://www.eelvex.net/programming/the-choice-1-intro/" title="The choice - 1 (Intro)">The choice - 1 (Intro)</a></li>
+				</ul>
+		<h3>Pages</h3>		<ul>
+			<li class="page_item page-item-1322"><a href="http://www.eelvex.net/running/">A Runner's log and a bit</a></li>
+<li class="page_item page-item-2"><a href="http://www.eelvex.net/about/">About</a></li>
+<li class="page_item page-item-344"><a href="http://www.eelvex.net/file-tag/">file-tag</a></li>
+<li class="page_item page-item-691"><a href="http://www.eelvex.net/inventory/">Inventory</a></li>
+<li class="page_item page-item-334"><a href="http://www.eelvex.net/latex-auto-greek/">latex-auto-greek</a></li>
+<li class="page_item page-item-1109"><a href="http://www.eelvex.net/projects/">Projects</a></li>
+<li class="page_item page-item-1270"><a href="http://www.eelvex.net/shsite/">shsite: bash site builder</a></li>
+<li class="page_item page-item-1541"><a href="http://www.eelvex.net/throw-away-equations/">Throw away equations.</a></li>
+<li class="page_item page-item-1436"><a href="http://www.eelvex.net/top-5-posts/">Top 5 posts</a></li>
+		</ul>
+				<!--anything below the widgets in sidebar1 goes here -->
+	</td></tr>
+   </table>
+</div>
+    <div id="footer">
+        <p><a id='rss' href="http://www.eelvex.net/feed/"><img src="/img/rss.png" alt="RSS icon" width="25" height="25" /></a> &nbsp; &nbsp; EelVex // <a href="http://wordpress.org" title="Wordpress">Wordpress</a> <span style='color: #ccc'> // modified (<a style='color:#ccc' href="http://jacobandreas.net/2008/photon-2-wordpress-theme/" title="Photon Wordpress Theme">Photon</a> by <a style='color:#ccc' href="http://jacobandreas.net/">Jacob Andreas</a>)</span></p><p><img src="/img/email.png" alt="email icon" width="25" height="25" />: anything [&nbsp;at ] EelVex [<span id='antispam' style='display:none'>don't spam</span> . ] net</p>
+
+<span class='disclaimer'>* Some amazon links are "amazon affiliate links." Clicking on the link and purchasing gets me an affiliate commission. I only recommend what I would recommend anyway.</span>
+
+
+    </div>
+
+
+<script type="text/javascript"><!--
+wpa2a.targets=[
+{title:'The choice - 2 (J and LISP)',url:'http://www.eelvex.net/programming/the-choice-2-j-and-lisp/'}];
+wpa2a.html_done=true;if(wpa2a.script_ready&&!wpa2a.done)wpa2a.init();wpa2a.script_load();
+//--></script>
+<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+		"HTML-CSS": {
+			scale: 85
+		}
+	});</script>
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script><script type='text/javascript' src='http://lite.piclens.com/current/piclens_optimized.js?ver=3.3.1'></script>
+
+</body>
+
+</html>
+
+<!-- Dynamic page generated in 0.739 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2012-02-08 11:25:23 -->
+<!-- super cache -->

@@ -1,0 +1,30 @@
+body { background: #fff; }
+
+body, .post-title a, .titles li a { color: #000; }
+a img { border-color: #444; }
+.wp-caption, #wrapper div.wp-caption { background: #444 }
+
+.wp-caption, #wrapper div.wp-caption { color: #ccc; }
+
+blockquote { color: #777; }
+
+a, #header h2 a, #header h2 a:hover, .prefix { color: #22b; }
+a img:hover { border-color: #22b; }
+#comments-post label.required { color: #22b; }
+
+a:hover, #headerbuttons img:hover { background: #e4e4e4; }
+#headerbuttons img:hover { background: #e4e4e4; }
+
+code, pre, input, textarea { border-color: #ccc;
+background: #eff5ef; }
+
+#header .suffix { color: #888; }
+#header h2 { border-bottom-color: #bbb; }
+
+#sidebar-box { border-color: #ddd; 
+background: #f2f2f2; }
+
+#arrows a:hover { color: #000; }
+
+#submit { background: #ccc;
+border-color: #bbb; }
